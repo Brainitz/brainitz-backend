@@ -7,7 +7,7 @@ var Brainitz = require('../lib/queries');
 router.get('/', function(req, res, next) {
   Brainitz.getEverything().then(function(everything) {
     console.log("yo buddy");
-    res.json(everything);
+    console.log(everything);
   })
 });
 
