@@ -3,12 +3,12 @@ require('dotenv').config({silent: true})
 module.exports = {
 
   development: {
-    client: 'pg',
+    client: 'mysql',
     connection: process.env.DATABASE_URL + '?ssl=true'
   },
 
   production: {
-    client: 'pg',
+    client: 'mysql',
     connection: process.env.DATABASE_URL + '?ssl=true'
   }
 
