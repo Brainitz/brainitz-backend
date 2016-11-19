@@ -7,21 +7,33 @@ var mysql = require('mysql');
 var db = require('../db/db');
 
 router.get('/', function(req, res) {
-  db.connect(function(err) {
-    console.log('establishing connection');
-    if (err) throw err;
-  });
-  knex.raw('select * from INFORMATION_SCHEMA.COLUMNS;').then(function(err, rows){
-    if(err) {
-      db.end();
-      console.error(err);
-      return;
-    } else {
-      console.log(rows);
-      res.json(rows);
-    }
-    db.end();
-  });
+  // db.connect(function(err) {
+  //   console.log('establishing connection **************************');
+  //   if (err) throw err;
+  //   knex.raw('select * from INFORMATION_SCHEMA.COLUMNS;').then(function(err, rows){
+  //     if(err) {
+  //       db.end();
+  //       console.error(err);
+  //       return;
+  //     } else {
+  //       console.log(rows);
+  //       res.json(rows);
+  //     }
+  //   });
+  // });
+  // db.end();
+
+  db.connect()
+
+  db.query('SHOW TABLES from ebdb;', function (err, rows, fields) {
+    if (err) throw err
+
+    console.log('The solution is: ', rows)
+    res.json(rows);
+  })
+
+  db.end()
+
 });
 
 module.exports = router;
