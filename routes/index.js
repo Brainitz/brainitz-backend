@@ -25,10 +25,10 @@ router.get('/', function(req, res, next) {
     .catch(function (error) {
       console.log('ERROR:', error)
     })
-  // Brainitz.getEverything().then(function(everything) {
-  //   console.log("yo buddy");
-  //   console.log(everything);
-  // })
+  Brainitz.getEverything().then(function(everything) {
+    console.log("yo buddy");
+    console.log(everything);
+  })
 });
 
 module.exports = router;
